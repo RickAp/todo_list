@@ -53,9 +53,8 @@ const useStyles = makeStyles((theme) => ({
 
 const ButtonModalTask = ({ task, deleteTask, updateTask, completeTask }) => {
   const [open, setOpen] = useState(false);
-  const [title, setTitle] = useState(task.content);
+  const [title, setTitle] = useState(task?.content);
   const [description, setDescription] = useState(task.description);
-  const [completed, setIsCompleted] = useState(task.isCompleted);
   const classes = useStyles();
   const router = useRouter();
 
