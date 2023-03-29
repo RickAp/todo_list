@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { Typography, Button } from "@material-ui/core";
 
 function TaskTimer({ duration, onComplete, id }) {
+  
   const storageKey = `task${id}`;
-  const [timeLeft, setTimeLeft] = typeof window !== 'undefined' 
-  ? useState(
-    parseInt(localStorage.getItem(storageKey)) || duration * 60
-  ) 
-  : useState(duration * 60);
+  let time;
+  if (typeof window !== 'undefined') {
+    time = parseInt(localStorage.getItem(storageKey));
+  }
+  const [timeLeft, setTimeLeft] = useState(
+    time || duration * 60
+  );
   const [isPaused, setIsPaused] = useState(false);
-  useEffect(() => {
-    
-  }, [])
 
   useEffect(() => {
     if (isPaused) {
