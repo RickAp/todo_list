@@ -82,11 +82,11 @@ const ButtonModalTask = ({ task, deleteTask, updateTask, completeTask }) => {
 
     const api = new TodoistApi('675513286f07a9ae9f9ec68af75d3dddad50ed69');
     try {
-      await api.updateTask(task.id, {
+      const updatedTask = await api.updateTask(task.id, {
         content: title,
         description: description,
       });
-      const updatedTask = { id: task.id, content: title, description: description };
+      //const updatedTask = { id: task.id, content: title, description: description };
       updateTask(updatedTask);
       handleClose();
     } catch (error) {
