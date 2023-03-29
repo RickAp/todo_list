@@ -3,10 +3,15 @@ import { Typography, Button } from "@material-ui/core";
 
 function TaskTimer({ duration, onComplete, id }) {
   const storageKey = `task${id}`;
-  const [timeLeft, setTimeLeft] = useState(
+  const [timeLeft, setTimeLeft] = typeof window !== 'undefined' 
+  ? useState(
     parseInt(localStorage.getItem(storageKey)) || duration * 60
-  );
+  ) 
+  : useState(duration * 60);
   const [isPaused, setIsPaused] = useState(false);
+  useEffect(() => {
+    
+  }, [])
 
   useEffect(() => {
     if (isPaused) {
