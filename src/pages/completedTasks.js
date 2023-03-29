@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 
-const completedTasks = () => {
+const CompletedTasks = () => {
 
     const { user } = useUser();
   
@@ -195,4 +195,4 @@ const completedTasks = () => {
     );
 }
 
-export default withPageAuthRequired(completedTasks);
+export default withPageAuthRequired(CompletedTasks);
